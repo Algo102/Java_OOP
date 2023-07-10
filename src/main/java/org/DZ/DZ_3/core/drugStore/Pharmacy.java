@@ -1,16 +1,20 @@
-package org.Seminar.Sem_3.core.drugStore;
+package org.DZ.DZ_3.core.drugStore;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
+
 // Класс лекарство
 public class Pharmacy implements Iterable<Component>, Comparable<Pharmacy>, Marker {
     private List<Component> components;
     private int componentsCount; // количество компонентов
+    private int index;
 
     public Pharmacy() {
         this.components = new ArrayList<>();
         this.componentsCount = 0;
+        this.index = 0;
     }
 
     public Pharmacy addComponet(Component component){
@@ -26,7 +30,7 @@ public class Pharmacy implements Iterable<Component>, Comparable<Pharmacy>, Mark
         return "Pharmacy{" +
                 "components=" + components +
                 ", index=" + componentsCount +
-                '}' +  " Total power = "+ getPower(this) + "\n";
+                '}' +  " Total power = " + getPower(this) + "\n";
     }
 
     // Имплиментировали Iterable и эти два метода перенесли вниз
@@ -50,19 +54,23 @@ public class Pharmacy implements Iterable<Component>, Comparable<Pharmacy>, Mark
 //        // конструктора, и ява говорит, что я не знаю ни каких конструкторов, но есть два метода, открывает фигурные
 //        // скобки и предлагает реализовать все имеющие методы интерфейса, благо у итератора их два. И не нужно писать
 //        // для него отдельную реализацию  в отдельном файле, отдельный класс.
-//        return new Iterator<Component>() {
-//            @Override
-//            public boolean hasNext() {
-//                return componentsCount < components.size();
-//            }
-//
-//            @Override
-//            public Component next() {
-//                return components.get(componentsCount++);
-//            }
-//        };
+        return new Iterator<Component>() {
+            @Override
+            public boolean hasNext() {
+                if(index == components.size()){
+                    index = 0;
+                    return false;
+                }
+                return componentsCount < components.size();
+            }
+
+            @Override
+            public Component next() {
+                return components.get(index++);
+            }
+        };
         // Для примера создали класс. Это одно и то же.
-        return new ComponentIterator();
+        // return new ComponentIterator();
     }
 
     public List<Component> getComponents() {
@@ -73,11 +81,28 @@ public class Pharmacy implements Iterable<Component>, Comparable<Pharmacy>, Mark
     public int compareTo(Pharmacy o) {
         int pow1 = getPower(this);
         int pow2 = getPower(o);
+        if (pow1 == pow2){
+            List<Component> listComp1 = getComponents();
+            List<Component> listComp2 = o.getComponents();
+            if (listComp1.size() != listComp2.size()) {
+                return Integer.compare(listComp1.size(), listComp2.size());
+            } else {
+                for (int i = 0; i < listComp1.size(); i++) {
+                    Component comp1 = listComp1.get(i);
+                    Component comp2 = listComp2.get(i);
+                    int temp = comp1.getName().compareTo(comp2.getName());
+                    if (temp != 0) {
+                        return temp;
+                    }
+                }
+                return 0;
+            }
+        }
+        else
+            return Integer.compare(pow1, pow2);
 
         // Это тоже самое, ява свернула, т.к. написали ее же код, стандартный метод compare,
         // который сравнивает два числа (пр.кн.мыши и show context action)
-        return Integer.compare(pow1, pow2);
-
 //        if(pow1 > pow2)
 //            return 1;
 //        else if (pow1 < pow2)
@@ -94,5 +119,19 @@ public class Pharmacy implements Iterable<Component>, Comparable<Pharmacy>, Mark
             result += elem.getPower();
         }
         return result;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Pharmacy)) return false;
+        Pharmacy that = (Pharmacy) o;
+        return componentsCount == that.componentsCount && index == that.index &&
+                Objects.equals(getComponents(), that.getComponents());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getComponents(), componentsCount, index);
     }
 }

@@ -1,6 +1,5 @@
-package org.Seminar.Sem_3.core.drugStore;
+package org.DZ.DZ_3.core.drugStore;
 
-import java.util.List;
 // Компонент лекарства
 public class Component {
   private String name;

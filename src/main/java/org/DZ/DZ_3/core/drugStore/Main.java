@@ -1,8 +1,7 @@
-package org.Seminar.Sem_3.core.drugStore;
+package org.DZ.DZ_3.core.drugStore;
 
-import org.Seminar.Sem_3.core.personal.Doctor;
+import org.DZ.DZ_3.core.personal.Doctor;
 
-import java.io.Serializable;
 import java.util.*;
 
 public class Main {
@@ -14,7 +13,7 @@ public class Main {
 
     //Выводим в консоль все компоненты одного лекарства
     //System.out.println(pharmacy1);
-    System.out.println("--------------");
+    //System.out.println("--------------");
     //Выводим перечень через встроенный Iterator
 //    while (((Iterator <Component>) pharmacy1).hasNext()){
 //      System.out.println(pharmacy1.next());
@@ -39,16 +38,25 @@ public class Main {
     Component comp6 = new Component("Spirit", "100 g", 100);
     pharmacy3.addComponet(comp5).addComponet(comp6);
 
+    Pharmacy pharmacy4 = new Pharmacy();
+    pharmacy4.addComponet(comp1).addComponet(comp2);
+
+    Pharmacy pharmacy5 = new Pharmacy();
+    Component comp7 = new Component("Viriculinxa", "10 mg", 10);
+    pharmacy5.addComponet(comp7).addComponet(comp2);
+
     List<Pharmacy> nomenclature = new ArrayList<>();
     nomenclature.add(pharmacy3);
     nomenclature.add(pharmacy1);
     nomenclature.add(pharmacy2);
+    //nomenclature.add(pharmacy4);
+    nomenclature.add(pharmacy5);
 
-    System.out.println(nomenclature);
+    //System.out.println(nomenclature);
 
     Collections.sort(nomenclature);
-    System.out.println("--------------");
-    System.out.println(nomenclature);
+    //System.out.println("--------------");
+    //System.out.println(nomenclature);
 
 
 //    Serializable - этот интерфейс пустой без методов, он трансформирует объект в байты, передает по сети,
@@ -63,16 +71,22 @@ public class Main {
 //    System.out.println(markers);
 
     Set<Pharmacy> result = new HashSet<>();
-    System.out.println("Start Lenght "+result.size());
+    result.add(pharmacy3);
     result.add(pharmacy1);
     result.add(pharmacy2);
-    result.add(pharmacy3);
-
-    Pharmacy pharmacy4 = new Pharmacy();
-    pharmacy4.addComponet(comp1).addComponet(comp2);
+    System.out.println("--------------Original list Lenght = "+result.size()+"----------");
+    System.out.println(result);
 
     result.add(pharmacy4);
-    System.out.println("Finish Lenght "+result.size());
+    System.out.println("------------Added pharmacy Full analog-------------");
+    System.out.println(pharmacy4);
+
+    System.out.println("-------------Lenght after adding = "+result.size()+"-----------");
+    System.out.println(result);
+
+    System.out.println("--------Added pharmacy with another name of the component-------");
+    System.out.println(pharmacy5);
+    System.out.println(nomenclature);
 
 
   }
