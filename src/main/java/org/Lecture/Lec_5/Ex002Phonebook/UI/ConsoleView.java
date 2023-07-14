@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import org.Lecture.Lec_5.Ex002Phonebook.Core.MVP.View;
 
+// 7. Работа с терминалом, которя имплиментирует ВЬЮ
 public class ConsoleView implements View {
     Scanner in;
     public ConsoleView() {

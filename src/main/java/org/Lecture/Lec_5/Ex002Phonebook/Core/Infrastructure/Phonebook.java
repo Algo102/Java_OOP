@@ -2,10 +2,10 @@ package org.Lecture.Lec_5.Ex002Phonebook.Core.Infrastructure;
 
 import java.util.ArrayList;
 import java.util.List;
-
+// 2. Ядро приложения в котором инфроструктурный модуль
 
 import org.Lecture.Lec_5.Ex002Phonebook.Core.Models.Contact;
-
+// Записная книжка и ее механика
 public class Phonebook {
 
     private List<Contact> contacts;
@@ -33,7 +33,7 @@ public class Phonebook {
     // update - обновление
     // ???...
 
-    // delete
+    // delete - удаление записи
     public boolean remove(Contact contact) {
         boolean flag = false;
         if (contacts.indexOf(contact) != -1) {

@@ -1,13 +1,16 @@
 package org.Lecture.Lec_5.Ex002Phonebook.Core.Models;
 
 import java.time.LocalDate;
-
+// 3. Определение модели, в данном случае Модели контакта
 public class Contact  implements Comparable<Contact> {
     public LocalDate date;
     public String firstName;
     public String lastName;
     public String company;
     public String phone;
+
+    // Хорошо бы проверить на валидность еМайл, а не просто строку
+    // Желательно выделить отдельную сущность, отдельный вод исени, домена, проверка на собачку и т.д.
     //public Email email;
     //public String email;
     public String description;
@@ -18,7 +21,7 @@ public class Contact  implements Comparable<Contact> {
         this.description = description;
     }
     
-    // добавить возможность создания объектов с бОльшим
+    // добавить возможность создания объектов с большим
     // количеством параметров
 
     @Override
