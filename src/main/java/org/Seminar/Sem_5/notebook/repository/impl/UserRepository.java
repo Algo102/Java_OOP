@@ -8,7 +8,8 @@ import org.Seminar.Sem_5.notebook.repository.GBRepository;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
+// Репозиторий отвечает за взаимодействие приложения и БД
+// Все операции с БД суют в класс репозиторий, логика сохранения и т.д
 public class UserRepository implements GBRepository<User, Long> {
     private final UserMapper mapper;
     private final FileOperation operation;
@@ -56,7 +57,34 @@ public class UserRepository implements GBRepository<User, Long> {
 
     @Override
     public Optional<User> update(Long id, User user) {
+        List<User> users = findAll();
+        // Запускаем в отдельном потоке перебор коллекции, и вызываем метод фильтр,
+        // который фильтрует по id, если id в списке совпадает с id который пришел,
+        // ищет первое вхождение, если есть, то вернет, если нет, то сообщит НЕТ
+        // Это выполняется в отдельном потоке Демоне, на фоне приложения, поэтому выполняется быстро
+        User editUser = users.stream()
+                .filter(u -> u.getId()
+                        .equals(id)).
+                findFirst().orElseThrow(() -> new RuntimeException("User not found"));
+        editUser.setId(id);
+        editUser.setFirstName(user.getFirstName());
+        editUser.setPhone(user.getPhone());
+        editUser.setLastName(user.getLastName());
+
+        write(users);
+
         return Optional.empty();
+    }
+
+    //
+    private void write(List<User> users){
+        // Создаем новый список
+        List<String> lines = new ArrayList<>();
+        // Бежим по юзерам
+        for (User u: users) { // Маппим в строчки
+            lines.add(mapper.toInput(u));
+        }
+        operation.saveAll(lines);
     }
 
     @Override

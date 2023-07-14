@@ -5,7 +5,8 @@ import org.Seminar.Sem_5.notebook.repository.GBRepository;
 
 import java.util.List;
 import java.util.Objects;
-
+// Контроллер - пользовательский ввод, сохранить, прочитать юзера
+// С него вызываем логику, которая реализована в репозитории
 public class UserController {
     private final GBRepository<User, Long> repository;
 
@@ -26,5 +27,14 @@ public class UserController {
         }
 
         throw new RuntimeException("User not found");
+    }
+
+    public List<User> readAllUsers() {
+        return repository.findAll();
+    }
+
+    public void updateUser(Long userid, User user) {
+        user.setId(userid);
+        repository.update(userid, user);
     }
 }

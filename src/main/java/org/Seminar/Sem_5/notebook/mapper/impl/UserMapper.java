@@ -2,7 +2,7 @@ package org.Seminar.Sem_5.notebook.mapper.impl;
 
 import org.Seminar.Sem_5.notebook.mapper.Mapper;
 import org.Seminar.Sem_5.notebook.model.User;
-
+// Маппер - меняет, т.е. вводим одной строчкой, а для хранения в файле переводит в нужный формат
 public class UserMapper implements Mapper<User, String> {
     @Override
     public String toInput(User user) {

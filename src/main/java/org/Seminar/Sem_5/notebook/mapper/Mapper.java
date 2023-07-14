@@ -4,6 +4,7 @@ package org.Seminar.Sem_5.notebook.mapper;
  * Конвертер моделей из одного типа в другой.
  * @param <E> тип, хранимый в БД
  * @param <T> тип, подходящий для конвертации E
+ * К примеру, строку перевести в объект
  */
 public interface Mapper<E, T> {
     T toInput(E e);

@@ -5,8 +5,9 @@ import org.Seminar.Sem_5.notebook.controller.UserController;
 import org.Seminar.Sem_5.notebook.model.User;
 import org.Seminar.Sem_5.notebook.util.Commands;
 
+import java.util.List;
 import java.util.Scanner;
-
+// Овечает за логику обработки пользовательского ввода
 public class UserView {
     private final UserController userController;
 
@@ -38,6 +39,27 @@ public class UserView {
                         throw new RuntimeException(e);
                     }
                     break;
+                case LIST:
+                    try {
+                        List<User> users = userController.readAllUsers();
+                        System.out.println(users);
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
+                    break;
+                case UPDATE:
+                    try {
+                        String name = prompt("Имя: ");
+                        String secondName = prompt("Фамилия: ");
+                        String number = prompt("Номер телефона: ");
+                        Long userid = Long.parseLong(prompt("Введите идентификато пользователя"));
+                        User updated = new User(name, secondName, number);
+                        userController.updateUser(userid, updated);
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
+                    break;
+
             }
         }
     }

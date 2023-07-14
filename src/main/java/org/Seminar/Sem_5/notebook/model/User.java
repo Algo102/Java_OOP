@@ -1,5 +1,5 @@
 package org.Seminar.Sem_5.notebook.model;
-
+// Модель, обычно лежит узер, та сущность которая будет храниться в БД
 public class User {
     private Long id;
     private String firstName;
