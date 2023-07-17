@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/log.0.0.txt" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/main/java/org/Lecture/Lec_3/Ex002/ExBeverage/Вeans.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/Lecture/Lec_6/Ex003_2LSP.java" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/main/java/org/Seminar/Sem_5/notebook/repository/GBRepository.java" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/main/java/org/Seminar/Sem_5/notebook/view/UserView.java" charset="windows-1251" />
     <file url="PROJECT" charset="windows-1251" />

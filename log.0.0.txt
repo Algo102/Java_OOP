@@ -1,0 +1,26 @@
+# указываем обработчики логов - файловый и консольный
+handlers = java.util.logging.FileHandler, java.util.logging.ConsoleHandler
+# все логи уровня инфо и выше
+java.util.logging.FileHandler.level     = INFO
+# класс который отвечает за форматирование логов в файл
+java.util.logging.FileHandler.formatter = java.util.logging.SimpleFormatter
+# append    = true чтобы шла дозапись файла
+java.util.logging.FileHandler.append    = true
+# паттерн для создания строки в нужном формате
+java.util.logging.FileHandler.pattern   = log.%u.%g.txt
+# с какого уровня будем выводить сообщения в консоль
+java.util.logging.ConsoleHandler.level     = INFO
+# класс который отвечает за форматирование логов в консоль
+java.util.logging.ConsoleHandler.formatter = java.util.logging.SimpleFormatter
+июл. 16, 2023 1:20:39 PM org.Seminar.Sem_6.dip1.Main main
+INFO: Method main in model package started
+июл. 16, 2023 1:33:54 PM org.Seminar.Sem_6.dip1.Main main
+INFO: Method main in model package started
+июл. 16, 2023 1:36:26 PM org.Seminar.Sem_6.dip1_new.Main main
+INFO: Method main in model package started
+июл. 17, 2023 1:25:28 AM org.Seminar.Sem_6.dip1_new.Main main
+INFO: Method main in model package started
+июл. 17, 2023 1:26:50 AM org.Seminar.Sem_6.dip1_new.Main main
+INFO: Method main in model package started
+июл. 17, 2023 1:32:04 AM org.Seminar.Sem_6.dip1_new.Main main
+INFO: Method main in model package started

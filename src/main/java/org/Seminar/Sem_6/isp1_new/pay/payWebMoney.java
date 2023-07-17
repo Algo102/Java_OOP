@@ -1,0 +1,5 @@
+package org.Seminar.Sem_6.isp1_new.pay;
+
+public interface payWebMoney {
+    void payWebMoney(int amount);
+}
