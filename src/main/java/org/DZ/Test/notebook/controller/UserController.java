@@ -1,7 +1,7 @@
-package org.DZ.DZ_5.controller;
+package org.DZ.Test.notebook.controller;
 
-import org.DZ.DZ_5.model.User;
-import org.DZ.DZ_5.repository.GBRepository;
+import org.DZ.Test.notebook.model.User;
+import org.DZ.Test.notebook.repository.GBRepository;
 
 import java.util.List;
 import java.util.Objects;
@@ -25,6 +25,7 @@ public class UserController {
                 return user;
             }
         }
+
         throw new RuntimeException("User not found");
     }
 
@@ -36,8 +37,4 @@ public class UserController {
         user.setId(userid);
         repository.update(userid, user);
     }
-
-    public void delete(List<User> users, Long id) {
-        repository.delete(users, id);}
-
 }

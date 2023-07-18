@@ -1,6 +1,4 @@
-package org.DZ.DZ_5.repository;
-
-import org.DZ.DZ_5.model.User;
+package org.DZ.Test.notebook.repository;
 
 import java.util.List;
 import java.util.Optional;
@@ -13,8 +11,7 @@ import java.util.Optional;
 public interface GBRepository<E, I> {
     List<E> findAll();
     E create(E e);
+    Optional<E> findById(I id);
     Optional<E> update(I id, E e);
-    boolean delete(List<User> allUser, Long id);
-    void saveAll(List<E> data);
-
+    boolean delete(I id);
 }

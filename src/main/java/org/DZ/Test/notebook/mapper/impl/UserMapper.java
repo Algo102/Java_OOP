@@ -1,13 +1,13 @@
-package org.DZ.DZ_5.mapper.impl;
+package org.DZ.Test.notebook.mapper.impl;
 
-import org.DZ.DZ_5.mapper.Mapper;
-import org.DZ.DZ_5.model.User;
+import org.DZ.Test.notebook.mapper.Mapper;
+import org.DZ.Test.notebook.model.User;
+
 // Маппер - меняет, т.е. вводим одной строчкой, а для хранения в файле переводит в нужный формат
 public class UserMapper implements Mapper<User, String> {
     @Override
     public String toInput(User user) {
-        return String.format("%s,%s,%s,%s", user.getId(), user.
-                getFirstName(), user.getLastName(), user.getPhone());
+        return String.format("%s,%s,%s,%s", user.getId(), user.getFirstName(), user.getLastName(), user.getPhone());
     }
 
     @Override

@@ -1,36 +1,34 @@
-package org.DZ.DZ_5;
+package org.DZ.Test.notebook;
 
-import org.DZ.DZ_5.controller.UserController;
-import org.DZ.DZ_5.model.User;
-import org.DZ.DZ_5.repository.GBRepository;
-import org.DZ.DZ_5.repository.impl.UserRepository;
-import org.DZ.DZ_5.view.UserView;
+import org.DZ.Test.notebook.controller.UserController;
+import org.DZ.Test.notebook.dao.impl.FileOperation;
+import org.DZ.Test.notebook.model.User;
+import org.DZ.Test.notebook.repository.GBRepository;
+import org.DZ.Test.notebook.repository.impl.UserRepository;
+import org.DZ.Test.notebook.view.UserView;
 import org.Seminar.Sem_5.notebook.util.DBConnector;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.DZ.DZ_5.util.DBConnector.*;
+import static org.Seminar.Sem_5.notebook.util.DBConnector.DB_PATH;
 // Основные компоненты Модель ВЬЮ Контроллер
 // Принято в Модель класть ту сущность которая будет храниться в БД, т.е. тут Юзер
 // Все остальное это вспомогательные для них
-// Репозиторий Маппер Дао они не участвуют в основном паттерне
+// Репозиторий Маппер Дао они не участвуют в основном паторне
 // Вся логика реализуется в сервисах, где после вычислений передаются в контроллеры, т.е. это состовляющие общей модели
 
 // Точка входа в программу - клиентский код, UI пользовательский интерфейс
 public class Main {
     public static void main(String[] args) {
-        //createDB();
+        // Создание базы данных
         DBConnector.createDB();
-        // Паттерн репозиторий, отвечает за взаимодействие с БД
-        GBRepository<User, Long> repository = new UserRepository(DB_PATH);
+        // Привязка к базе данных
+        FileOperation fileOperation = new FileOperation(DB_PATH);
+        // Патерн репозиторий, отвечает за взаимодействие с БД
+        GBRepository<User, Long> repository = new UserRepository(fileOperation);
         // Контролер отвечает за логику, пользовательский ввод, сохранить, прочитать юзера и т.д
         UserController controller = new UserController(repository);
         // ВЬЮ
         UserView view = new UserView(controller);
         // Запуск приложения
         view.run();
-
-
     }
 }

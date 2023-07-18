@@ -12,8 +12,6 @@ import java.util.Optional;
 // Все операции с БД суют в класс репозиторий, логика сохранения и т.д
 public class UserRepository implements GBRepository<User, Long> {
     private final UserMapper mapper;
-
-
     private final String fileName;
 
     public UserRepository(String fileName) {
@@ -103,7 +101,6 @@ public class UserRepository implements GBRepository<User, Long> {
         return Optional.empty();
     }
 
-    //
     private void write(List<User> users){
         // Создаем новый список
         List<User> lines = new ArrayList<>();
@@ -135,5 +132,4 @@ public class UserRepository implements GBRepository<User, Long> {
             System.out.println(e.getMessage());
         }
     }
-
 }

@@ -1,14 +1,13 @@
-package org.DZ.DZ_5.view;
+package org.DZ.Test.notebook.view;
 
 
-import org.DZ.DZ_5.controller.UserController;
-import org.DZ.DZ_5.model.User;
-import org.DZ.DZ_5.util.Commands;
-
+import org.DZ.Test.notebook.controller.UserController;
+import org.DZ.Test.notebook.model.User;
+import org.DZ.Test.notebook.util.Commands;
 
 import java.util.List;
 import java.util.Scanner;
-// Отвечает за логику обработки пользовательского ввода
+// Овечает за логику обработки пользовательского ввода
 public class UserView {
     private final UserController userController;
 
@@ -53,22 +52,14 @@ public class UserView {
                         String name = prompt("Имя: ");
                         String secondName = prompt("Фамилия: ");
                         String number = prompt("Номер телефона: ");
-                        Long userid = Long.parseLong(prompt("Введите идентификатор пользователя"));
+                        Long userid = Long.parseLong(prompt("Введите идентификато пользователя"));
                         User updated = new User(name, secondName, number);
                         userController.updateUser(userid, updated);
                     } catch (Exception e) {
                         throw new RuntimeException(e);
                     }
                     break;
-                case DELETE:
-                    try {
-                        Long userid = Long.parseLong(prompt("Введите идентификатор пользователя: "));
-                        List<User> users = userController.readAllUsers();
-                        userController.delete(users, userid);
-                    } catch (Exception e) {
-                        throw new RuntimeException(e);
-                    }
-                    break;
+
             }
         }
     }
