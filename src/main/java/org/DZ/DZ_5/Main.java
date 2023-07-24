@@ -4,8 +4,9 @@ import org.DZ.DZ_5.controller.UserController;
 import org.DZ.DZ_5.model.User;
 import org.DZ.DZ_5.repository.GBRepository;
 import org.DZ.DZ_5.repository.impl.UserRepository;
+import org.DZ.DZ_5.util.DBConnector;
 import org.DZ.DZ_5.view.UserView;
-import org.Seminar.Sem_5.notebook.util.DBConnector;
+
 
 import java.util.ArrayList;
 import java.util.List;
