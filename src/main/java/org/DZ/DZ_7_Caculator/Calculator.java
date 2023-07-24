@@ -1,4 +1,4 @@
-package org.DZ.DZ7_Caculator;
+package org.DZ.DZ_7_Caculator;
 
 public final class Calculator implements Calculable {
 

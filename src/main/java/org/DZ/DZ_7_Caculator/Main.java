@@ -1,6 +1,6 @@
-package org.DZ.DZ7_Caculator;
+package org.DZ.DZ_7_Caculator;
 
-import org.DZ.DZ7_Caculator.New.CalculatorFactoryWithLogger;
+import org.DZ.DZ_7_Caculator.New.CalculatorFactoryWithLogger;
 
 public class Main {
     public static void main(String[] args) {

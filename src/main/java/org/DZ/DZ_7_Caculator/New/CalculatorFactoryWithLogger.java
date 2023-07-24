@@ -1,9 +1,9 @@
-package org.DZ.DZ7_Caculator.New;
+package org.DZ.DZ_7_Caculator.New;
 
-import org.DZ.DZ7_Caculator.Calculable;
-import org.DZ.DZ7_Caculator.Calculator;
-import org.DZ.DZ7_Caculator.ICalculableFactory;
-import org.DZ.DZ7_Caculator.Log.ConsoleLogger;
+import org.DZ.DZ_7_Caculator.Calculable;
+import org.DZ.DZ_7_Caculator.Calculator;
+import org.DZ.DZ_7_Caculator.ICalculableFactory;
+import org.DZ.DZ_7_Caculator.Log.ConsoleLogger;
 
 public class CalculatorFactoryWithLogger implements ICalculableFactory {
     @Override

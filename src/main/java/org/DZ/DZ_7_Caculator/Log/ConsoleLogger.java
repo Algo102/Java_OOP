@@ -1,4 +1,4 @@
-package org.DZ.DZ7_Caculator.Log;
+package org.DZ.DZ_7_Caculator.Log;
 
 import java.time.LocalDateTime;
 

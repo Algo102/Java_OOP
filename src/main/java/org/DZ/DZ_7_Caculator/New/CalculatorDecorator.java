@@ -1,7 +1,7 @@
-package org.DZ.DZ7_Caculator.New;
+package org.DZ.DZ_7_Caculator.New;
 
-import org.DZ.DZ7_Caculator.Calculable;
-import org.DZ.DZ7_Caculator.Log.Logger;
+import org.DZ.DZ_7_Caculator.Calculable;
+import org.DZ.DZ_7_Caculator.Log.Logger;
 
 public class CalculatorDecorator implements Calculable {
     private Calculable calculator;
