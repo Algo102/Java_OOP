@@ -23,7 +23,5 @@ public class Task4_finally {
             }
             System.out.println("finally finished");
         }
-
-
     }
 }
