@@ -1,4 +1,4 @@
-package org.DZ.Excep_DZ1;
+package org.DZ.Except_DZ1;
 import java.util.Arrays;
 
 
