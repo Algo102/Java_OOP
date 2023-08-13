@@ -1,14 +1,84 @@
 package org.DZ.Algoritm_DZ4;
 
 import java.util.Arrays;
+import java.util.Iterator;
 
-public class HashMap<K, V> {
+public class HashMap<K, V> implements Iterable<HashMap.Entity> {
 
     private static final int INIT_BUCKET_COUNT = 16;
     private static final double LOAD_FACTOR = 0.5;
     private  int size; // Истинное количество добавленных элементов хэш таблицы
     private Bucket[] buckets; // Массив бакетов (связных списков)
 
+    @Override
+    public Iterator<HashMap.Entity> iterator() {
+        return new HashMapIterator();
+    }
+
+    class HashMapIterator implements Iterator<HashMap.Entity>{
+
+        @Override
+        public boolean hasNext() {
+//            if (currentNode == null){
+//                for (int i = 0; i < buckets.length; i++)
+//                    if (buckets[i] != null && buckets[i].head != null){
+//                        currentIndex = i;
+//                        currentNode = buckets[i].head;
+//                        return true;
+//                    }
+//                return false;
+//            }
+//            else{
+//                if (get((K)currentNode.value.key) == null)
+//                {
+//                    currentNode = null;
+//                    currentIndex = 0;
+//                    return hasNext();
+//                }
+//                else{
+//                    HashMap.Bucket.Node node = currentNode;
+//                    currentIndex = calculateBucketIndex((K)node.value.key);
+//                    if (node.next != null){
+//                        currentNode = node.next;
+//                        return true;
+//                    }
+//                    for (int i = ++currentIndex; i < buckets.length; i++){
+//                        if (buckets[i] != null && buckets[i].head != null){
+//                            currentIndex = i;
+//                            currentNode = buckets[i].head;
+//                            return true;
+//                        }
+//                    }
+//                    currentNode = null;
+//                    currentIndex = 0;
+//                    return false;
+//                }
+//            }
+            return false;
+        }
+
+        @Override
+        public Entity next() {
+//            if (currentNode == null){
+//                for (int i = 0; i < buckets.length; i++)
+//                    if (buckets[i] != null && buckets[i].head != null){
+//                        currentIndex = i;
+//                        currentNode = buckets[i].head;
+//                        return currentNode.value;
+//                    }
+//                return null;
+//            }
+//            else if (get((K)currentNode.value.key) == null){
+//                currentNode = null;
+//                currentIndex = 0;
+//                return null;
+//            }
+//            else
+//                return currentNode.value;
+//        }
+            return null;
+        }
+    }
 
 
     /**
