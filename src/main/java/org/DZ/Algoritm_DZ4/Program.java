@@ -48,9 +48,9 @@ public class Program {
         String res4 = hm1.remove("+7925666");
         String res5 = hm1.remove("+7925666");
 
-       for (HashMap.Entity e : hm1){
-           System.out.println(e.key + " " + e.value);
-       }
+        for (HashMap.Entity entity: hm1) {
+            System.out.println(entity);
+        }
 
 
 
